@@ -1,0 +1,101 @@
+{% extends 'partials/base.html' %} 
+
+{% block title %} Home page{% endblock %}
+
+{%block content %}
+{% if user.is_authenticated and user.is_staff and user.is_superuser %} 
+
+{% include 'partials/topnav.html' %}
+<!-- Graphs  -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="bg-white my-5">
+        <div>
+          <canvas id="myChart1" height="300" width="400"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+          var ctx = document.getElementById("myChart1");
+
+          new Chart(ctx, {
+            type: "pie",
+            data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [
+                {
+                  label: "Products",
+                  data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                    "rgba(255,99,132,1)",
+                    "rgba(54,162,235,1)",
+                    "rgba(255,286,86,1)",
+                    "rgba(75,192,192,1)",
+                    "rgba(153,102,255,1)",
+                    "rgba(255,159,64,1)",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+        </script>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="bg-white my-5">
+        <div>
+          <canvas id="myChart" height="300" width="400"></canvas>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+          var ctx = document.getElementById("myChart");
+
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [
+                {
+                  label: "Products",
+                  data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                    "rgba(255,99,132,1)",
+                    "rgba(54,162,235,1)",
+                    "rgba(255,286,86,1)",
+                    "rgba(75,192,192,1)",
+                    "rgba(153,102,255,1)",
+                    "rgba(255,159,64,1)",
+                  ],
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+              },
+            },
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Graphs  -->
+{% endif %} 
+
+{% endblock %}
