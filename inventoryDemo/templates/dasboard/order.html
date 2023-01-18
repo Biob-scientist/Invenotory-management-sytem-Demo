@@ -1,56 +1,39 @@
-{% extends 'partials/base.html' %} {% block title %} Order page{% endblock %}
-{%block content %}<!-- table  -->
-{% include 'partials/topnav.html' %}
-    <div class="container">
-        <div class="row my-3">
-            <div class="col-md-4">
-                
-            </div>
-            <div class="col-md-8">
-                <table class="table bg-white">
-                    <thead class="bg-info text-white">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Order by</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Iphone SE</td>
-                            <td>A</td>
-                            <td>6</td>
-                            <td> Lai
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Samsung Galaxy S9</td>
-                            <td>B</td>
-                            <td>4</td>
-                            <td> Rachael
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Nokia 8.1</td>
-                            <td>C</td>
-                            <td>3</td>
-                            <td>Blessing
-                            </td>
-                        </tr>
-                       
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+{% extends 'partials/base.html' %}
+{% block title %}
+  Order page
+{% endblock %}
+{% block content %}
+  <!-- table -->
+  {% include 'partials/topnav.html' %}
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <table class="table bg-white">
+          <thead class="bg-info text-white">
+            <tr>
+              <th scope="col">Product</th>
+              <th scope="col">Category</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Order by</th>
+              <th scope="col">Order date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+              <tr>
+                <td>{{ order.product }}</td>
+                <td>{{ order.product.category }}</td>
+                <td>{{ order.order_quantity }}</td>
+                <td>{{ order.staff }}</td>
+                <td>{{ order.date }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
-   
-    <!-- table  -->
+  </div>
 
-
- {% endblock %}
+  <!-- table -->
+{% endblock %}

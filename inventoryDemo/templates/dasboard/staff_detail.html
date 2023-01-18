@@ -1,0 +1,55 @@
+{% extends 'partials/base.html' %} {% block title %}
+  Staff page
+{% endblock %}
+{% block content %}
+  {% include 'partials/topnav.html' %}
+
+  <!-- table -->
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-hearder text-white bg-info py-2">
+            <span class="px-4 h6">Profile page</span>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h4>Staff profile information</h4>
+                <hr />
+                <table class="table bg-white table-borderless">
+                  <tbody>
+                    <tr>
+                      <th scope="row">Name</th>
+                      <td>{{ staff_users.username }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Email</th>
+                      <td>{{ staff_users.email }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Phone</th>
+                      <td>{{ staff_users.profile.phone }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Address</th>
+                      <td>{{ staff_users.profile.address }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-4">
+                <img class="img-fluid" src="{{ staff_users.profile.image.url }}" alt="A profile picture" style="height: 200px; width: 150px" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- table -->
+
+  <!-- table -->
+{% endblock %}
